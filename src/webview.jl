@@ -1,14 +1,10 @@
-__precompile__()
-
 module Webview
 
-#using Printf
-
 export
-	webview, webview_init,
-	NULL
+	webview, webview_init, doc
 
 include("libwebview.jl")
+include("doc.jl")
 
 
 end # module
