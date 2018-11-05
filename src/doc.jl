@@ -1,5 +1,3 @@
-using Markdown
-
 function doc(fname::AbstractString; title::AbstractString="", width::Integer=0, height::Integer=0)
 
 	if (width == 0)  width = 800  end

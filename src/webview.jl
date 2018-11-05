@@ -1,5 +1,7 @@
 module Webview
 
+using Markdown
+
 export
 	webview, webview_init, doc
 
