@@ -23,3 +23,8 @@ README file, do:
 and this displays the Julia main page
 
     doc("https://julialang.org/")
+
+one can also display the contents of files located in the ``docs/src`` directory of a package.
+As an example, this shows the contents of the ``GMT`` *examples.md* file
+
+    doc(GMT, "examples.md")

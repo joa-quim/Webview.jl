@@ -1,3 +1,17 @@
+"""
+	doc(fname, title="", width=800, height=600)
+	
+Display the contents of file name ``fname`` in a browser (webview) window.
+Alternatively, ``fname`` can be a URL address.
+
+Example, display the contents of the README.md file located in current dir.
+
+   doc("README.md")
+
+to display the contents of the ``examples.md`` file located in the docs/src dir of the module GMT, do
+
+   doc(GMT, "examples.md")
+"""
 function doc(fname::AbstractString; title::AbstractString="", width::Integer=0, height::Integer=0)
 
 	if (width == 0)  width  = 800  end
@@ -9,4 +23,9 @@ function doc(fname::AbstractString; title::AbstractString="", width::Integer=0, 
 		MD = Markdown.parse_file(fname);
 		webview(title, "data:text/html,<html>" * html(MD) * "</html>", width, height)
 	end
+end
+
+function doc(mod::Module, fname::AbstractString; title::AbstractString="", width::Integer=0, height::Integer=0)
+	fn = joinpath(dirname(pathof(mod)), "..", joinpath("docs/src", fname))
+	doc(fn, title=title, width=width, height=height)
 end

@@ -1,6 +1,6 @@
 module Webview
 
-using Markdown
+using Markdown, Pkg
 
 export
 	webview, webview_init, doc
