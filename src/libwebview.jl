@@ -1,5 +1,5 @@
-@static Sys.iswindows() ? (const thelib = "C:/programs/compa_libs/webview/compiled/VC12_64/webview_w64") : (const thelib = "libgmt")  # Name of GMT shared lib.
-#@static Sys.iswindows() ? (Sys.WORD_SIZE == 64 ? (const thelib = "webview_w64") : (const thelib = "webview_w32")) : (const thelib = "libgmt")  # Name of GMT shared lib.
+#@static Sys.iswindows() ? (const thelib = "C:/programs/compa_libs/webview/compiled/VC12_64/webview_w64") : (const thelib = "libgmt")  # Name of the shared lib.
+@static Sys.iswindows() ? (Sys.WORD_SIZE == 64 ? (const thelib = "webview_w64") : (const thelib = "webview_w32")) : (const thelib = "webview")  # Name of the shared lib.
 
 const Void = Cvoid
 const NULL = C_NULL
@@ -45,4 +45,9 @@ end
 
 function webview_init(wv::Ptr{webview})
 	ccall((:webview_init, thelib), Cint, (Ptr{webview},), wv)
+end
+
+# This one is used so far only to detect if we have Webview lib present or not.
+function webview_print_log(t::String="")
+	ccall((:webview_print_log, thelib), Cvoid, (Ptr{UInt8},), t)
 end
