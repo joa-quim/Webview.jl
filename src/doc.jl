@@ -26,6 +26,10 @@ function doc(fname::AbstractString; title::AbstractString="", width::Integer=0, 
 end
 
 function doc(mod::Module, fname::AbstractString; title::AbstractString="", width::Integer=0, height::Integer=0)
-	fn = joinpath(dirname(pathof(mod)), "..", joinpath("docs/src", fname))
+	if (fname == "README" || fname == "README.md")
+		fn = joinpath(dirname(pathof(mod)), "..", "README.md")
+	else
+		fn = joinpath(dirname(pathof(mod)), "..", joinpath("docs/src", fname))
+	end
 	doc(fn, title=title, width=width, height=height)
 end
