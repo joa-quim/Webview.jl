@@ -28,3 +28,7 @@ one can also display the contents of files located in the ``docs/src`` directory
 As an example, this shows the contents of the ``GMT`` *examples.md* file
 
     doc(GMT, "examples.md")
+
+To display the doc strings of any documented function, just do (i.e to show the *sin* docs)
+
+   doc(sin)
