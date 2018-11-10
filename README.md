@@ -31,4 +31,4 @@ As an example, this shows the contents of the ``GMT`` *examples.md* file
 
 To display the doc strings of any documented function, just do (i.e to show the *sin* docs)
 
-   doc(sin)
+    doc(sin)
